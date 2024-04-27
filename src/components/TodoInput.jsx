@@ -1,9 +1,15 @@
+/* eslint-disable react/prop-types */
 
-export default function TodoInput() {
+import { useState } from 'react';
+
+export default function TodoInput({handleAddTodos}) {
+
+  const [todoValue, setTodoValue] = useState('')
+  
   return (
     <header>
-      <input type="text" placeholder="Enter todo..." />
-      <button>Add</button>
+      <input type="text" value={todoValue} onChange={ (e) => { setTodoValue(e.target.value) }} placeholder="Enter todo..." />
+      <button onClick={()=>{handleAddTodos(todoValue)}} >Add</button>
     </header>
   )
 }
