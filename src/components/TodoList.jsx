@@ -1,5 +1,8 @@
 
+import TodoCard from './TodoCard'
+
 export default function TodoList() {
+
   let todos = [
     'Go to the gym',
     'Eat more fruits and vege',
@@ -8,9 +11,12 @@ export default function TodoList() {
  
   return (
     <ul className="main">
-      {
-        todos.map( (todo, i) => <li className="todoItem" key={i}> {todo} </li> )
-      }
+      { todos.map( 
+        (todo, i) => 
+          <TodoCard key={i}>
+            <p>{todo}</p>
+          </TodoCard>
+      )}
     </ul>
   )
 }
